@@ -1,3 +1,20 @@
+//helper function
+function _sortByValue(objArray)
+{
+ return objArray.sort((a, b) => {
+    if (a.count > b.count)
+    {
+      return -1
+    }
+    else if (a.count < b.count)
+    {
+      return 1
+    }
+  },[])
+      //return (array.sort((a,b) => (a.sortby, b.sortby ? -1 : 1)))
+}
+
+
 function totalBooksCount(books)
 {
   return books.length
@@ -47,14 +64,15 @@ function getMostCommonGenres(books)
 
 function getMostPopularBooks(books) // WE KNOW WHAT TO DO WITH THIS
 {
-  return mostPopularBooks = books.reduce((acc, book) => {
+  const mostPopularBooks = books.reduce((acc, book) => {
     let title = book.title
     let borrowCount = book.borrows.length
     let item = { name: title, count: borrowCount }
     acc.push(item)
     return acc }, [])
-    .sort((a,b) => a.count > b.count ? -1 : 1).splice(0,5)
+   // .sort((a,b) => a.count > b.count ? -1 : 1).splice(0,5)
 
+   return ((_sortByValue(mostPopularBooks)).splice(0,5))
   //console.log(mostPopularBooks)
 
 }
@@ -76,7 +94,9 @@ function getMostPopularAuthors(books, authors)
     })
     authorsBooks.push({name: authorFullName, count: borrowCount})
   })
-  return authorsBooks.sort((a,b) => a.count > b.count ? -1 : 1).splice(0,5)
+
+  return ((_sortByValue(authorsBooks)).splice(0,5))
+  //return authorsBooks.sort((a,b) => a.count > b.count ? -1 : 1).splice(0,5)
 }
 
 module.exports = {
