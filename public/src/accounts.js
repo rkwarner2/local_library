@@ -19,7 +19,7 @@ function numberOfBorrows(account, books) //lets refractor this one
   books.forEach((book) => {
     for (borrow of book.borrows)
     {
-      console.log(borrow)
+      //console.log(borrow)
       if (borrow.id === account.id)
       {
         totalBorrows += 1
@@ -32,19 +32,19 @@ function numberOfBorrows(account, books) //lets refractor this one
 
 function getBooksPossessedByAccount(account, books, authors) //this will use the spread operator
 {
-  let accountId = account.id
-  let usersBooks = books.filter((book) => {
+  const accountId = account.id
+  const usersBooks = books.filter((book) => {
     const checkedOut = book.borrows[0]
     if (checkedOut.returned === false && checkedOut.id === accountId)
     {
       return book
     }
   })
-  console.log("This is userbooks: " + usersBooks)
+  //console.log("This is userbooks: " + usersBooks)
 
   checkedOutByUser = usersBooks.map((userBook) =>
   {
-    let author = authors.find((author) => (author.id === userBook.authorId))
+    const author = authors.find((author) => (author.id === userBook.authorId))
     return {...userBook, author}
   })
 

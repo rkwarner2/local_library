@@ -11,8 +11,8 @@ function findBookById(books, id)
 
 function partitionBooksByBorrowedStatus(books)
 {
-  let checkedIn = []
-  let checkedOut = []
+  const checkedIn = []
+  const checkedOut = []
   books.reduce((acc, book) => {
     
     const lastActivity = book.borrows[0]
@@ -30,13 +30,13 @@ function partitionBooksByBorrowedStatus(books)
 
 function getBorrowersForBook(book, accounts)
 {
-  let borrowers = []
+  const borrowers = []
   for (borrow of book.borrows)
   {
-    console.log("This is borrow: " + borrow)
-    let userAccount = accounts.find(account => account.id === borrow.id)
-    console.log("This is userAccount: " + userAccount)
-    let item = {...borrow, ...userAccount}
+    //console.log("This is borrow: " + borrow)
+    const userAccount = accounts.find(account => account.id === borrow.id)
+    //console.log("This is userAccount: " + userAccount)
+    const item = {...borrow, ...userAccount}
 
     borrowers.push(item)
   

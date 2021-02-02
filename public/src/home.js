@@ -14,7 +14,6 @@ function _sortByValue(objArray)
       //return (array.sort((a,b) => (a.sortby, b.sortby ? -1 : 1)))
 }
 
-
 function totalBooksCount(books)
 {
   return books.length
